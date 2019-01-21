@@ -1,24 +1,34 @@
+const pixelRatio = window.devicePixelRatio;
 const body = document.body;
 const canvas = document.createElement('canvas');
+
 const context = canvas.getContext('2d');
+context.imageSmoothingQuality = 'high'
+context.imageSmoothingEnabled = true;
 
 const BG_COLOR = '#9bca3e';
 
+let width = 0;
+let height = 0;
 let originX = 0;
 let originY = 0;
 let mouseX = 0;
 let mouseY = 0;
 let isMouseDown = false;
 
+let now = performance.now();
+let prevDrawTime = now;
+
 function draw() {
-  const width = canvas.width;
-  const height = canvas.height;
+  now = performance.now();
 
   context.fillStyle = BG_COLOR;
   context.fillRect(0, 0, width, height);
 
+  drawFPS();
   drawSelectionArea();
 
+  prevDrawTime = now;
   window.requestAnimationFrame(draw);
 }
 
@@ -41,8 +51,19 @@ function onMouseUp(e) {
 }
 
 function onResize() {
-  canvas.width = body.clientWidth;
-  canvas.height = body.clientHeight;
+  width = body.clientWidth;
+  height = body.clientHeight;
+
+  // set the 'real' canvas size to the higher width/height
+  canvas.width = width * pixelRatio;
+  canvas.height = height * pixelRatio;
+
+  // ...then scale it back down with CSS
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+
+  // scale the drawing context so everything will work at the higher ratio
+  context.scale(pixelRatio, pixelRatio);
 }
 
 document.addEventListener('mousemove', onMouseMove);
