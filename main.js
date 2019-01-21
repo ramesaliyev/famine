@@ -45,9 +45,10 @@ function onResize() {
   canvas.height = body.clientHeight;
 }
 
-window.addEventListener('mousemove', onMouseMove);
-window.addEventListener('mousedown', onMouseDown);
-window.addEventListener('mouseup', onMouseUp);
+document.addEventListener('mousemove', onMouseMove);
+document.addEventListener('mouseenter', onMouseMove);
+document.addEventListener('mousedown', onMouseDown);
+document.addEventListener('mouseup', onMouseUp);
 window.addEventListener('resize', onResize);
 body.appendChild(canvas);
 
