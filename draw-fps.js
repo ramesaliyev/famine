@@ -7,5 +7,5 @@ function drawFPS() {
     FPS = (1000 / (now - prevDrawTime)).toFixed(0);
   }
 
-  text(width - 35, 30, `FPS:${FPS}`)
+  text(width - 35, 25, `FPS:${FPS}`)
 }

@@ -1,6 +1,5 @@
-const gridSize = 50;
-
 function drawGrid() {
+  let gridSize = 50;
   let x = viewportX % gridSize;
   let y = viewportY % gridSize;
 
