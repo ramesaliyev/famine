@@ -1,3 +1,5 @@
+const zoom = newZoomLevel => zoomLevel = newZoomLevel;
+
 const withAngle = (x, y, angle, fn) => {
   context.save();
   context.translate(x, y);

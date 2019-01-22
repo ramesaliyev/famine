@@ -10,6 +10,7 @@ function drawSelectionArea() {
   const shift = (SELECTION_AREA_ANIMATION_SHIFT % (sepLen + dashLen));
 
   context.lineWidth = 2;
+  context.strokeStyle = COLORS.black;
 
   const hFrom = min(originX, mouseX);
   const hTo = max(originX, mouseX);

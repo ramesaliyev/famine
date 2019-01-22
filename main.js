@@ -8,12 +8,17 @@ context.imageSmoothingEnabled = true;
 
 const BG_COLOR = '#9bca3e';
 
+let unitPx = pixelRatio;
+let viewportX = 0;
+let viewportY = 0;
+let zoomLevel = 0;
 let width = 0;
 let height = 0;
 let originX = 0;
 let originY = 0;
 let mouseX = 0;
 let mouseY = 0;
+let mouseMoved = false;
 let isMouseDown = false;
 
 let now = performance.now();
@@ -25,6 +30,8 @@ function draw() {
   context.fillStyle = BG_COLOR;
   context.fillRect(0, 0, width, height);
 
+  uiWorldMovement();
+  drawGrid();
   drawFPS();
   drawSelectionArea();
 
@@ -35,6 +42,7 @@ function draw() {
 function onMouseMove(e) {
   mouseX = e.clientX;
   mouseY = e.clientY;
+  mouseMoved = true;
 }
 
 function onMouseDown(e) {
@@ -54,15 +62,12 @@ function onResize() {
   width = body.clientWidth;
   height = body.clientHeight;
 
-  // set the 'real' canvas size to the higher width/height
   canvas.width = width * pixelRatio;
   canvas.height = height * pixelRatio;
 
-  // ...then scale it back down with CSS
   canvas.style.width = width + 'px';
   canvas.style.height = height + 'px';
 
-  // scale the drawing context so everything will work at the higher ratio
   context.scale(pixelRatio, pixelRatio);
 }
 
