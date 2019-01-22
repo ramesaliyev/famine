@@ -1,7 +1,7 @@
 function drawGrid() {
-  let gridSize = 50;
-  let x = viewportX % gridSize;
-  let y = viewportY % gridSize;
+  let gridSize = 20 * zoomLevel;
+  let x = (viewportX * zoomLevel) % gridSize;
+  let y = (viewportY * zoomLevel) % gridSize;
 
   context.lineWidth = 1;
   context.strokeStyle = '#60992D';

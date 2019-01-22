@@ -1,5 +1,3 @@
-const zoom = newZoomLevel => zoomLevel = newZoomLevel;
-
 const withAngle = (x, y, angle, fn) => {
   context.save();
   context.translate(x, y);
@@ -32,6 +30,25 @@ const text = (x, y, text, options = {}) => {
   context.textAlign = align;
   context.fillStyle = color;
   context.fillText(text, x, y);
+};
+
+const circle = (x, y, r, {
+  color = COLORS.black,
+  fill = true,
+  startAngle = 0,
+  endAngle = twoPI,
+  aCW = true,
+  lineWidth = 1,
+} = {}) => {
+  context.lineWidth = lineWidth;
+  context.strokeStyle = color;
+  context.fillStyle = color;
+  context.moveTo(x, y);
+  context.beginPath();
+  fill && context.moveTo(x, y);
+  context.arc(x, y, r, startAngle, endAngle, aCW);
+  fill && context.closePath();
+  fill ? context.fill() : context.stroke();
 };
 
 function line(fromX, fromY, toX, toY, {color, lineWidth} = {}) {

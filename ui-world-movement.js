@@ -5,25 +5,26 @@ function uiWorldMovement() {
 
   const accleration = UI_WORLD_MOVEMENT_AC;
   const scrollTriggerSize = 100;
+  const scrollBy = unitPx * accleration * Math.min(zoomLevel, 1);
   let inProgress = false;
 
   if (mouseY < scrollTriggerSize) {
-    viewportY += unitPx * accleration;
+    viewportY += scrollBy;
     inProgress = true;
   }
 
   if (height - mouseY < scrollTriggerSize) {
-    viewportY -= unitPx * accleration;
+    viewportY -= scrollBy;
     inProgress = true;
   }
 
   if (mouseX < scrollTriggerSize) {
-    viewportX += unitPx * accleration;
+    viewportX += scrollBy;
     inProgress = true;
   }
 
   if (width - mouseX < scrollTriggerSize) {
-    viewportX -= unitPx * accleration;
+    viewportX -= scrollBy;
     inProgress = true;
   }
 
