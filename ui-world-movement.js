@@ -1,7 +1,7 @@
 let UI_WORLD_MOVEMENT_AC = 1;
 
 function uiWorldMovement() {
-  if (!mouseMoved) return;
+  if (isMouseOutOfScreen) return;
 
   const accleration = UI_WORLD_MOVEMENT_AC;
   const scrollTriggerSize = 100;

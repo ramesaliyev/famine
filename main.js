@@ -18,8 +18,9 @@ let originX = 0;
 let originY = 0;
 let mouseX = 0;
 let mouseY = 0;
-let mouseMoved = false;
+let isMouseMoved = false;
 let isMouseDown = false;
+let isMouseOutOfScreen = true;
 
 let now = performance.now();
 let prevDrawTime = now;
@@ -39,10 +40,15 @@ function draw() {
   window.requestAnimationFrame(draw);
 }
 
+function onMouseLeave(e) {
+  isMouseOutOfScreen = true;
+}
+
 function onMouseMove(e) {
   mouseX = e.clientX;
   mouseY = e.clientY;
-  mouseMoved = true;
+  isMouseMoved = true;
+  isMouseOutOfScreen = false;
 }
 
 function onMouseDown(e) {
@@ -73,6 +79,7 @@ function onResize() {
 
 document.addEventListener('mousemove', onMouseMove);
 document.addEventListener('mouseenter', onMouseMove);
+document.addEventListener('mouseleave', onMouseLeave);
 document.addEventListener('mousedown', onMouseDown);
 document.addEventListener('mouseup', onMouseUp);
 window.addEventListener('resize', onResize);
