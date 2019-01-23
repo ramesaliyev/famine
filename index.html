@@ -8,13 +8,26 @@
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
-  <script src="utils.js"></script>
-  <script src="helpers.js"></script>
-  <script src="ui-world-movement.js"></script>
-  <script src="draw-grid.js"></script>
-  <script src="draw-selection-area.js"></script>
-  <script src="draw-info.js"></script>
-  <script src="draw-units.js"></script>
-  <script src="main.js"></script>
+  <script>
+    const scripts = [
+      'utils',
+      'helpers',
+      'ui-world-movement',
+      'draw-grid',
+      'draw-selection-area',
+      'draw-info',
+      'draw-units',
+      'main'
+    ];
+
+    const doc = new DocumentFragment();
+    scripts.forEach(file => {
+      const script = document.createElement('script');
+      script.src = `${file}.js?v=${Date.now()}`;
+      script.async = false;
+      doc.appendChild(script);
+    });
+    document.body.appendChild(doc);
+  </script>
 </body>
 </html>
