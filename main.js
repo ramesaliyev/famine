@@ -27,7 +27,6 @@ let now = performance.now();
 let prevDrawTime = now;
 
 function draw() {
-  gameLoopInProgress = false;
   now = performance.now();
   context.fillStyle = BG_COLOR;
   context.fillRect(0, 0, width, height);
@@ -47,7 +46,10 @@ function draw() {
 
   if (!isPaused && !gameLoopInProgress) {
     gameLoopInProgress = true;
-    window.requestAnimationFrame(draw);
+    window.requestAnimationFrame(() => {
+      gameLoopInProgress = false;
+      draw();
+    });
   }
 }
 
