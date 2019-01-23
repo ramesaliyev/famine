@@ -1,6 +1,10 @@
 function drawUnits() {
-  const centerW = viewportX + (width / 2);
-  const centerH = viewportY + (height / 2);
+  const {x, y} = getScreenPosition(0, 0, true);
+  circle(x, y, 10, {fill:false});
 
-  circle(centerW, centerH, 50);
+  const {x:x1, y:y1} = getScreenPosition(20, 20, true);
+  circle(x1, y1, 10, {fill:false});
+
+  const {x:x2, y:y2} = getScreenPosition(100, 100, true);
+  circle(x2, y2, 20, {fill:false});
 }

@@ -51,6 +51,31 @@ const circle = (x, y, r, {
   fill ? context.fill() : context.stroke();
 };
 
+const rect = (x, y, w, h, options = {}) => {
+  const {
+    color = COLORS.gray,
+    angle = 0,
+    fill = false,
+    lineWidth = 1.5,
+  } = options;
+
+  if (angle) {
+    options.angle = false;
+
+    return withAngle(x, y, angle, () =>
+      $drawRect(0, 0, w, h, options)
+    );
+  }
+
+  context.beginPath();
+  context.lineWidth = lineWidth,
+  context.strokeStyle = color;
+  context.fillStyle = color;
+  context.rect(x, y, w, h);
+  context.closePath();
+  fill ? context.fill() : context.stroke();
+};
+
 function line(fromX, fromY, toX, toY, {color, lineWidth} = {}) {
   if (lineWidth) context.lineWidth = lineWidth;
   if (color) context.strokeStyle = color;

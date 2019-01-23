@@ -5,7 +5,7 @@ function uiWorldMovement() {
 
   const accleration = UI_WORLD_MOVEMENT_AC;
   const scrollTriggerSize = 100;
-  const scrollBy = unitPx * accleration * Math.min(zoomLevel, 1);
+  const scrollBy = unitPx;// * accleration * Math.min(zoomLevel, 1);
   let inProgress = false;
 
   if (mouseY < scrollTriggerSize) {
@@ -27,6 +27,8 @@ function uiWorldMovement() {
     viewportX -= scrollBy;
     inProgress = true;
   }
+
+  calculateViewport();
 
   UI_WORLD_MOVEMENT_AC = inProgress ? Math.min(UI_WORLD_MOVEMENT_AC + 0.05, 3.5) : 1;
 }
