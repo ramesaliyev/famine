@@ -159,8 +159,6 @@ function onResize() {
   width = body.clientWidth;
   height = body.clientHeight;
 
-  const pixelRatio = 1;
-
   canvas.width = width * pixelRatio;
   canvas.height = height * pixelRatio;
 
