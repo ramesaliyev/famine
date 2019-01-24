@@ -3,21 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>hello game dev</title>
+  <title>famine</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
 </head>
 <body>
   <script>
     const scripts = [
-      'utils',
-      'helpers',
-      'ui-world-movement',
-      'draw-grid',
-      'draw-selection-area',
-      'draw-info',
-      'draw-units',
-      'main'
+      'ui/colors',
+
+      'core/config',
+      'core/constants',
+      'core/globals',
+      'core/math',
+      'core/calculate',
+      'core/world',
+
+      'lib/circle',
+      'lib/utils',
+      'lib/line',
+      'lib/dashed-line',
+      'lib/rect',
+      'lib/text',
+
+      'draw/grid',
+      'draw/objects',
+      'draw/info',
+      'draw/selection-area',
+
+      'core/dom',
+      'core/screen',
+      'core/game',
     ];
 
     const doc = new DocumentFragment();

@@ -1,0 +1,1 @@
+const DEVICE_PIXEL_RATIO = window.devicePixelRatio;
