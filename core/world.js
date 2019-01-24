@@ -28,30 +28,39 @@ function getScreenXY(worldX, worldY, zl = zoomLevel) {
   };
 }
 
-function changeZoomLevel(zl = zoomLevel) {
+function setZoomLevel(zl = zoomLevel) {
   zoomLevel = Math.max(Math.min(ZOOM_MAX, zl), ZOOM_MIN);
+  calculate();
+}
+
+function setViewportOffset(x, y) {
+  viewportOffsetX = x;
+  viewportOffsetY = y;
   calculate();
 }
 
 function zoom(worldX, worldY, zl) {
   const screenXY = getScreenXY(worldX, worldY);
-  changeZoomLevel(zl);
+  setZoomLevel(zl);
 
-  viewportOffsetX -= (getScreenX(worldX) - screenXY.x) / zoomLevel;
-  viewportOffsetY -= (getScreenY(worldY) - screenXY.y) / zoomLevel;
+  setViewportOffset(
+    viewportOffsetX - ((getScreenX(worldX) - screenXY.x) / zoomLevel),
+    viewportOffsetY - ((getScreenY(worldY) - screenXY.y) / zoomLevel)
+  );
 }
 
 function center(worldX, worldY, zl) {
-  changeZoomLevel(zl);
+  setZoomLevel(zl);
 
-  viewportOffsetX = -worldX + (viewportWidth / 2);
-  viewportOffsetY = worldY + (viewportHeight / 2);
-
-  calculate();
+  setViewportOffset(
+    -worldX + (viewportWidth / 2),
+    worldY + (viewportHeight / 2)
+  );
 }
 
 function moveViewport(x = 0, y = 0) {
-  viewportOffsetX -= x;
-  viewportOffsetY += y;
-  calculate();
+  setViewportOffset(
+    viewportOffsetX - x,
+    viewportOffsetY + y
+  );
 }

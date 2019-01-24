@@ -21,12 +21,14 @@ function onMouseLeave(e) {
 function onMouseMove(e) {
   mouseScreenX = e.clientX;
   mouseScreenY = e.clientY;
+  calculate();
 }
 
 function onMouseDown(e) {
   if (!isMouseDown) {
     mouseDownOriginScreenX = mouseScreenX;
     mouseDownOriginScreenY = mouseScreenY;
+    calculate();
   }
 
   isMouseDown = true;
@@ -63,7 +65,11 @@ function onScroll(e) {
   const wheelDelta = e.wheelDelta ? e.wheelDelta / 400 : 0;
 
   if (!isPaused && wheelDelta) {
-    zoom(getWorldX(mouseScreenX), getWorldY(mouseScreenY), zoomLevel + wheelDelta, true);
+    zoom(
+      getWorldX(mouseScreenX),
+      getWorldY(mouseScreenY),
+      zoomLevel + wheelDelta
+    );
   }
 }
 

@@ -10,4 +10,7 @@ function calculate() {
 
   mouseWorldX = getWorldX(mouseScreenX);
   mouseWorldY = getWorldX(mouseScreenX);
+
+  mouseDownOriginWorldX = getWorldX(mouseDownOriginScreenX);
+  mouseDownOriginWorldY = getWorldY(mouseDownOriginScreenY);
 }

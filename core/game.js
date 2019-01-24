@@ -5,7 +5,10 @@ function loop() {
   context.fillStyle = COLOR.canvasBackground;
   context.fillRect(0, 0, screenWidth, screenHeight);
 
-  edgeScroll();
+  if (!isPaused) {
+    edgeScroll();
+  }
+
   drawGrid();
 
   context.save();
@@ -13,8 +16,10 @@ function loop() {
   drawObjects();
   context.restore();
 
-  !isPaused && drawInfo();
-  drawSelectionArea();
+  if (!isPaused) {
+    drawInfo();
+    drawSelectionArea();
+  }
 
   prevDrawTime = now;
 
