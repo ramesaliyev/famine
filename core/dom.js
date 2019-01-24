@@ -19,6 +19,10 @@ function onMouseLeave(e) {
 }
 
 function onMouseMove(e) {
+  if (isPaused) {
+    return onMouseEnter(e);
+  }
+
   mouseScreenX = e.clientX;
   mouseScreenY = e.clientY;
   calculate();
