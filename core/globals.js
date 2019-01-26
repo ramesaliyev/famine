@@ -19,10 +19,10 @@ let mouseWorldX = 0;
 let mouseWorldY = 0;
 let mouseScreenX = 0;
 let mouseScreenY = 0;
-let mouseDownOriginScreenX = 0;
-let mouseDownOriginScreenY = 0;
-let mouseDownOriginWorldX = 0;
-let mouseDownOriginWorldY = 0;
+let mouseDownOriginScreenX = null;
+let mouseDownOriginScreenY = null;
+let mouseDownOriginWorldX = null;
+let mouseDownOriginWorldY = null;
 let isMouseDown = false;
 let isMouseOutOfScreen = true;
 
