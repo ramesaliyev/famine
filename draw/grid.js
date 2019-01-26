@@ -3,15 +3,24 @@ function drawGrid() {
   let x = (viewportOffsetX * zoomLevel) % gridSize;
   let y = (viewportOffsetY * zoomLevel) % gridSize;
 
+  context.lineWidth = 1;
+  context.strokeStyle = COLOR.gridLine;
+
+  context.beginPath();
+
   while (x < screenWidth) {
-    line(x, 0, x, screenHeight, {color: COLOR.gridLine});
+    context.moveTo(x, 0);
+    context.lineTo(x, screenHeight);
     x += gridSize;
   }
 
   while (y < screenHeight) {
-    line(0, y, screenWidth, y, {color: COLOR.gridLine});
+    context.moveTo(0, y);
+    context.lineTo(screenWidth, y);
     y += gridSize;
   }
+
+  context.stroke();
 
   const {x: axisX, y: axisY} = getScreenXY(0, 0);
   line(0, axisY, screenWidth, axisY, {color:COLOR.gridAxisLine, lineWidth:2});
