@@ -9,6 +9,7 @@ function drawInfo() {
 
   const table = [
     ['FPS', FPS],
+    ['zoomLevel', zoomLevel],
     ['screenWidth', screenWidth],
     ['screenHeight', screenHeight],
     ['viewportWidth', viewportWidth],
@@ -31,15 +32,16 @@ function drawInfo() {
     ['isMouseOutOfScreen', isMouseOutOfScreen],
   ];
 
-  const right = screenWidth - 55;
-  rect(screenWidth - 235, 0, 235, (table.length + 1) * 25, {fill: true, color: COLOR.infoBoxColor});
-  rect(screenWidth - 235, 0, 235, (table.length + 1) * 25, {fill: false, color: COLOR.infoTextColor});
+  const right = screenWidth - 75;
+  const boxWidth = 270;
+  rect(screenWidth - boxWidth, 0, boxWidth, (table.length + 1) * 25, {fill: true, color: COLOR.infoBoxColor});
+  rect(screenWidth - boxWidth, 0, boxWidth, (table.length + 1) * 25, {fill: false, color: COLOR.infoTextColor});
 
   table.forEach((row, index) => {
     let [name, val] = row;
 
     if (typeof val === 'number') {
-      val = Math.floor(val);
+      val = val.toFixed(2);
     }
 
     text(right, (index+1) * 25, `${name}`, {align:'right', color: COLOR.infoTextColor});

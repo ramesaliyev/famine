@@ -1,35 +1,26 @@
-let EDGE_SCROLL_SPEED = 0.5;
-let EDGE_SCROLL_ACCELERATION = 0;
-
-const MAX_EDGE_SCROLL_SPEED = 10;
-const scrollTriggerSize = 100;
+const EDGE_SCROLL_TRIGGER_SIZE = 100;
+const EDGE_SCROLL_WORLD_SIZE_PER_SECOND = 250;
 
 function edgeScroll() {
   if (isMouseOutOfScreen) {
-    EDGE_SCROLL_SPEED = 1;
-    EDGE_SCROLL_ACCELERATION = 0;
     return;
   };
 
-  EDGE_SCROLL_SPEED = Math.min(EDGE_SCROLL_SPEED + EDGE_SCROLL_ACCELERATION, MAX_EDGE_SCROLL_SPEED);
-  EDGE_SCROLL_ACCELERATION += 0.01;
+  const speed = timePassedSinceLastDrawSec * getScreenSize(EDGE_SCROLL_WORLD_SIZE_PER_SECOND);
 
-  if (mouseScreenY < scrollTriggerSize) {
-    return moveViewport(0, EDGE_SCROLL_SPEED);
+  if (mouseScreenY < EDGE_SCROLL_TRIGGER_SIZE) {
+    moveViewport(0, speed);
   }
 
-  if (screenHeight - mouseScreenY < scrollTriggerSize) {
-    return moveViewport(0, -EDGE_SCROLL_SPEED);
+  if (screenHeight - mouseScreenY < EDGE_SCROLL_TRIGGER_SIZE) {
+    moveViewport(0, -speed);
   }
 
-  if (mouseScreenX < scrollTriggerSize) {
-    return moveViewport(-EDGE_SCROLL_SPEED, 0);
+  if (mouseScreenX < EDGE_SCROLL_TRIGGER_SIZE) {
+    moveViewport(-speed, 0);
   }
 
-  if (screenWidth - mouseScreenX < scrollTriggerSize) {
-    return moveViewport(EDGE_SCROLL_SPEED, 0);
+  if (screenWidth - mouseScreenX < EDGE_SCROLL_TRIGGER_SIZE) {
+    moveViewport(speed, 0);
   }
-
-  EDGE_SCROLL_SPEED = 1;
-  EDGE_SCROLL_ACCELERATION = 0;
 }

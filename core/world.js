@@ -28,12 +28,22 @@ function getScreenXY(worldX, worldY, zl = zoomLevel) {
   };
 }
 
+function getWorldSize(screenSize) {
+  return screenSize * (screenWidth / viewportWidth);
+}
+
+function getScreenSize(worldSize) {
+  return worldSize * (viewportWidth / screenWidth);
+}
+
 function setZoomLevel(zl = zoomLevel) {
   zoomLevel = Math.max(Math.min(ZOOM_MAX, zl), ZOOM_MIN);
   calculate();
 }
 
 function setViewportOffset(x, y) {
+  prevViewportOffsetX = viewportOffsetX;
+  prevViewportOffsetY = viewportOffsetY;
   viewportOffsetX = x;
   viewportOffsetY = y;
   calculate();
