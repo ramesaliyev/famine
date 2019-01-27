@@ -16,6 +16,8 @@ function drawInfo() {
     ['viewportHeight', viewportHeight],
     ['viewportOffsetX', viewportOffsetX],
     ['viewportOffsetY', viewportOffsetY],
+    ['prevViewportOffsetX', prevViewportOffsetX],
+    ['prevViewportOffsetY', prevViewportOffsetY],
     ['centerWorldX', centerWorldX],
     ['centerWorldY', centerWorldY],
     ['centerScreenX', centerScreenX],
@@ -30,6 +32,7 @@ function drawInfo() {
     ['mouseDownOriginWorldY', mouseDownOriginWorldY],
     ['isMouseDown', isMouseDown],
     ['isMouseOutOfScreen', isMouseOutOfScreen],
+    ['viewportIsMoving', viewportIsMoving],
   ];
 
   const right = screenWidth - 75;

@@ -1,5 +1,6 @@
-let gameLoopInProgress = false;
-let isPaused = true;
+let initialized = false;
+let gameLoopInProgress = null;
+let isPaused = null;
 
 let zoomLevel = INITIAL_ZOOM_LEVEL;
 
@@ -9,8 +10,9 @@ let viewportWidth = 0;
 let viewportHeight = 0;
 let viewportOffsetX = 0;
 let viewportOffsetY = 0;
-let prevViewportOffsetX = 0;
-let prevViewportOffsetY = 0;
+let prevViewportOffsetX = null;
+let prevViewportOffsetY = null;
+let viewportIsMoving = null;
 
 let centerWorldX = 0;
 let centerWorldY = 0;
@@ -25,10 +27,10 @@ let mouseDownOriginScreenX = null;
 let mouseDownOriginScreenY = null;
 let mouseDownOriginWorldX = null;
 let mouseDownOriginWorldY = null;
-let isMouseDown = false;
-let isMouseOutOfScreen = true;
+let isMouseDown = null;
+let isMouseOutOfScreen = null;
 
-let now = performance.now();
-let prevDrawTime = now;
+let now = null;
+let prevDrawTime = null;
 let timePassedSinceLastDrawMS = 0;
 let timePassedSinceLastDrawSec = 0;

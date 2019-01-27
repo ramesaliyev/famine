@@ -1,4 +1,8 @@
 function loop() {
+  if (!initialized) {
+    setInitials();
+  }
+
   now = performance.now();
   timePassedSinceLastDrawMS = now - prevDrawTime;
   timePassedSinceLastDrawSec = timePassedSinceLastDrawMS / 1000;
@@ -9,6 +13,8 @@ function loop() {
   if (!isPaused) {
     edgeScroll();
   }
+
+  viewportIsMoving = (prevViewportOffsetX !== viewportOffsetX || prevViewportOffsetY !== viewportOffsetY);
 
   drawGrid();
 
@@ -23,6 +29,8 @@ function loop() {
   }
 
   prevDrawTime = now;
+  prevViewportOffsetX = viewportOffsetX;
+  prevViewportOffsetY = viewportOffsetY;
 
   if (!isPaused && !gameLoopInProgress) {
     gameLoopInProgress = true;

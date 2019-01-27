@@ -42,8 +42,6 @@ function setZoomLevel(zl = zoomLevel) {
 }
 
 function setViewportOffset(x, y) {
-  prevViewportOffsetX = viewportOffsetX;
-  prevViewportOffsetY = viewportOffsetY;
   viewportOffsetX = x;
   viewportOffsetY = y;
   calculate();
