@@ -6,6 +6,10 @@ function drawGrid() {
   context.lineWidth = 1;
   context.strokeStyle = COLOR.gridLine;
 
+  if (viewportIsMoving) {
+    context.globalAlpha = 0.2
+  };
+
   context.beginPath();
 
   while (x < screenWidth) {
@@ -21,6 +25,7 @@ function drawGrid() {
   }
 
   context.stroke();
+  context.globalAlpha = 1;
 
   const {x: axisX, y: axisY} = getScreenXY(0, 0);
   line(0, axisY, screenWidth, axisY, {color:COLOR.gridAxisLine, lineWidth:2});
