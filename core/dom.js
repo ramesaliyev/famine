@@ -39,15 +39,15 @@ function onMouseDown(e) {
 }
 
 function onMouseUp(e) {
-  mouseDownOriginScreenX = null;
-  mouseDownOriginScreenY = null;
-  calculate();
-
   isMouseDown = false;
 
   if (mouseScreenX === mouseDownOriginScreenX && mouseScreenY === mouseDownOriginScreenY) {
     onMouseClick(e);
   }
+
+  mouseDownOriginScreenX = null;
+  mouseDownOriginScreenY = null;
+  calculate();
 }
 
 function onMouseClick(e) {
