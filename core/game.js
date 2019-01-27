@@ -4,8 +4,7 @@ function loop() {
   }
 
   now = performance.now();
-  timePassedSinceLastDrawMS = now - prevDrawTime;
-  timePassedSinceLastDrawSec = timePassedSinceLastDrawMS / 1000;
+  drawTimeDelta = (now - prevDrawTime) / 1000;
 
   context.fillStyle = COLOR.canvasBackground;
   context.fillRect(0, 0, screenWidth, screenHeight);

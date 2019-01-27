@@ -2,7 +2,7 @@ let FPS = 0;
 let lastFPSUpdateTime = performance.now();
 
 function drawInfo() {
-  if (now - lastFPSUpdateTime >= 100) {
+  if (now - lastFPSUpdateTime >= 200) {
     lastFPSUpdateTime = now;
     FPS = (1000 / (now - prevDrawTime)).toFixed(0);
   }

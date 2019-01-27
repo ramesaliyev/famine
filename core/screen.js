@@ -6,7 +6,7 @@ function edgeScroll() {
     return;
   };
 
-  const speed = timePassedSinceLastDrawSec * getScreenSize(EDGE_SCROLL_WORLD_SIZE_PER_SECOND);
+  const speed = drawTimeDelta * getScreenSize(EDGE_SCROLL_WORLD_SIZE_PER_SECOND);
 
   if (mouseScreenY < EDGE_SCROLL_TRIGGER_SIZE) {
     moveViewport(0, speed);

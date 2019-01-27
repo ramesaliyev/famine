@@ -21,5 +21,5 @@ function drawSelectionArea() {
   dashedLine(vFrom, vTo, mouseDownOriginScreenX, {...options, vertical: true});
   dashedLine(vFrom, vTo, mouseScreenX, {...options, vertical: true});
 
-  SELECTION_AREA_ANIMATION_SHIFT += 0.6;
+  SELECTION_AREA_ANIMATION_SHIFT += (60 * drawTimeDelta);
 }

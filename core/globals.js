@@ -32,5 +32,4 @@ let isMouseOutOfScreen = null;
 
 let now = null;
 let prevDrawTime = null;
-let timePassedSinceLastDrawMS = 0;
-let timePassedSinceLastDrawSec = 0;
+let drawTimeDelta = 0;
