@@ -18,6 +18,10 @@ let centerWorldX = 0;
 let centerWorldY = 0;
 let centerScreenX = 0;
 let centerScreenY = 0;
+let leftEdgeWorldX = 0;
+let rightEdgeWorldX = 0;
+let topEdgeWorldY = 0;
+let bottomEdgeWorldY = 0;
 
 let mouseWorldX = 0;
 let mouseWorldY = 0;

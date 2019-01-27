@@ -15,12 +15,12 @@ function loop() {
 
   viewportIsMoving = (prevViewportOffsetX !== viewportOffsetX || prevViewportOffsetY !== viewportOffsetY);
 
-  drawGrid();
-
   context.save();
   context.scale(zoomLevel, zoomLevel);
-  drawObjects();
+  drawMap();
   context.restore();
+
+  drawGrid();
 
   if (!isPaused) {
     drawInfo();

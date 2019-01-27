@@ -1,14 +1,11 @@
 function drawGrid() {
-  let gridSize = GRID_SIZE * zoomLevel;
+  let gridSize = TILE_SIZE * zoomLevel;
   let x = (viewportOffsetX * zoomLevel) % gridSize;
   let y = (viewportOffsetY * zoomLevel) % gridSize;
 
   context.lineWidth = 1;
   context.strokeStyle = COLOR.gridLine;
-
-  if (viewportIsMoving) {
-    context.globalAlpha = 0.2
-  };
+  context.globalAlpha = 0.2
 
   context.beginPath();
 

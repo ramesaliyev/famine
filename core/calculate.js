@@ -8,6 +8,11 @@ function calculate() {
   centerWorldX = getWorldX(centerScreenX);
   centerWorldY = getWorldY(centerScreenY);
 
+  leftEdgeWorldX = getWorldX(0);
+  rightEdgeWorldX = getWorldX(screenWidth);
+  topEdgeWorldY = getWorldY(0);
+  bottomEdgeWorldY = getWorldY(screenHeight);
+
   mouseWorldX = getWorldX(mouseScreenX);
   mouseWorldY = getWorldX(mouseScreenY);
 

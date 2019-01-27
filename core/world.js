@@ -72,3 +72,32 @@ function moveViewport(x = 0, y = 0) {
     viewportOffsetY + y
   );
 }
+
+function isVisible(worldX, worldY, width, height) {
+  const topY = worldY;
+  const bottomY = worldY - height;
+  const leftX = worldX;
+  const rightX = worldX + width;
+
+  // Left top corner
+  if (topY <= topEdgeWorldY && topY >= bottomEdgeWorldY && leftX >= leftEdgeWorldX && leftX <= rightEdgeWorldX) {
+    return true;
+  }
+
+  // Left bottom corner
+  if (bottomY <= topEdgeWorldY && bottomY >= bottomEdgeWorldY && leftX >= leftEdgeWorldX && leftX <= rightEdgeWorldX) {
+    return true;
+  }
+
+  // Left top corner
+  if (topY <= topEdgeWorldY && topY >= bottomEdgeWorldY && rightX >= leftEdgeWorldX && rightX <= rightEdgeWorldX) {
+    return true;
+  }
+
+  // Left bottom corner
+  if (bottomY <= topEdgeWorldY && bottomY >= bottomEdgeWorldY && rightX >= leftEdgeWorldX && rightX <= rightEdgeWorldX) {
+    return true;
+  }
+
+  return false;
+}

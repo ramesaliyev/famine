@@ -4,7 +4,7 @@ const COLOR = {
   defaultLine: '#000',
   defaultCircle: '#000',
 
-  canvasBackground: '#9bca3e',
+  canvasBackground: '#000',
 
   gridLine: '#60992D',
   gridAxisLine: '#333',
