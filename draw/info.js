@@ -37,6 +37,8 @@ function drawInfo() {
     ['isMouseDown', isMouseDown],
     ['isMouseOutOfScreen', isMouseOutOfScreen],
     ['viewportIsMoving', viewportIsMoving],
+    ['isPaused', isPaused],
+    ['globalAlpha', context.globalAlpha],
   ];
 
   const right = screenWidth - 75;

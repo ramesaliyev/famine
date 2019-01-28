@@ -1,8 +1,11 @@
 let initialized = false;
 let gameLoopInProgress = null;
 let isPaused = null;
+let firstDrawCompleted = null;
 
+let globalAlpha = 1;
 let zoomLevel = INITIAL_ZOOM_LEVEL;
+let prevZoomLevel = null;
 
 let screenWidth = 0;
 let screenHeight = 0;

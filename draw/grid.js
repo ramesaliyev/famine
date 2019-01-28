@@ -3,6 +3,8 @@ function drawGrid() {
   let x = (viewportOffsetX * zoomLevel) % gridSize;
   let y = (viewportOffsetY * zoomLevel) % gridSize;
 
+  const globalAlphaBackup = context.globalAlpha;
+
   context.lineWidth = 1;
   context.strokeStyle = COLOR.gridLine;
   context.globalAlpha = 0.2
@@ -22,7 +24,7 @@ function drawGrid() {
   }
 
   context.stroke();
-  context.globalAlpha = 1;
+  context.globalAlpha = globalAlphaBackup;
 
   const {x: axisX, y: axisY} = getScreenXY(0, 0);
   line(0, axisY, screenWidth, axisY, {color:COLOR.gridAxisLine, lineWidth:2});

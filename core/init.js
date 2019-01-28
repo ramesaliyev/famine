@@ -3,8 +3,16 @@ function setInitials() {
     gameLoopInProgress = false;
   }
 
+  if (firstDrawCompleted === null) {
+    firstDrawCompleted = false;
+  }
+
+  if (prevZoomLevel === null) {
+    prevZoomLevel = zoomLevel;
+  }
+
   if (isPaused === null) {
-    isPaused = false;
+    isPaused = true;
   }
 
   if (prevViewportOffsetX === null) {

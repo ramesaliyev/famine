@@ -1,10 +1,22 @@
 const body = document.body;
 
-const canvas = document.createElement('canvas');
-const context = canvas.getContext('2d');
+function createCanvas() {
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
 
-context.imageSmoothingQuality = 'high'
-context.imageSmoothingEnabled = true;
+  context.imageSmoothingQuality = 'high'
+  context.imageSmoothingEnabled = true;
+  context.translate(0.5, 0.5);
+
+  canvas.context = context;
+
+  return canvas;
+}
+
+const canvas = createCanvas();
+const context = canvas.context;
+
+const bufferCanvas = createCanvas();
 
 function onMouseEnter(e) {
   isMouseOutOfScreen = false;
@@ -63,6 +75,9 @@ function onResize() {
 
   canvas.style.width = screenWidth + 'px';
   canvas.style.height = screenHeight + 'px';
+
+  bufferCanvas.width = canvas.width;
+  bufferCanvas.height = canvas.height;
 
   context.scale(DEVICE_PIXEL_RATIO, DEVICE_PIXEL_RATIO);
 
