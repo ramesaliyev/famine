@@ -3,6 +3,10 @@ function setInitials() {
     gameLoopInProgress = false;
   }
 
+  if (buffering === null) {
+    buffering = false;
+  }
+
   if (firstDrawCompleted === null) {
     firstDrawCompleted = false;
   }

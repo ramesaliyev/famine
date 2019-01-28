@@ -2,6 +2,7 @@ let initialized = false;
 let gameLoopInProgress = null;
 let isPaused = null;
 let firstDrawCompleted = null;
+let buffering = null;
 
 let globalAlpha = 1;
 let zoomLevel = INITIAL_ZOOM_LEVEL;
